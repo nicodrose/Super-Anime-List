@@ -3,7 +3,8 @@ const Anime = require('../models/anime');
 module.exports = {
     index,
     new: newAnime,
-    create
+    create,
+    show
 }
 
 async function index(req, res) {
@@ -26,4 +27,9 @@ async function create(req, res) {
         console.log(err);
         res.render('animes/new', { errorMsg: err.message });
     }
+}
+
+async function show(req, res) {
+    const anime = await Anime.findById(req.params.id);
+    res.render('animes/show', { title: 'Anime Details', anime });
 }

@@ -9,5 +9,7 @@ router.get('/', animesCtrl.index);
 router.get('/new', animesCtrl.new);
 // POST /animes (create functionality/controller action)
 router.post('/', animesCtrl.create);
+// GET /animes/:id (show functionality/controller action) - MUST be below 'new' route
+router.get('/:id', animesCtrl.show);
 
 module.exports = router;

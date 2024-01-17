@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const animeSchema = new Schema({
     title: { type: String, required: true },
-    genre: { type: String, required: true },
+    genre: { 
+        type: String, 
+        enum: ['Shonen', 'Seinen', 'Isekai', 'Mecha', 'Slice of Life'],
+        required: true 
+    },
     releaseYear: {
         type: Number,
         default: function() {
