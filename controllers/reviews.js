@@ -2,6 +2,7 @@ const Anime = require("../models/anime")
 
 module.exports = {
     create,
+    delete: deleteOne
 }
 
 async function create(req, res) {
@@ -16,4 +17,15 @@ async function create(req, res) {
         console.log(err);
     }
     res.redirect(`/animes/${anime._id}`);
+}
+
+async function deleteOne(req, res) {
+    const anime = await Anime.findOne({
+        'reviews._id': req.params.id,
+        'reviews.user': req.user._id
+    });
+    if (!anime) return res.redirect('/animes');
+    anime.reviews.remove(req.params.id);
+    await anime.save();
+    res.redirect(`/animes/${anime._id}`)
 }
