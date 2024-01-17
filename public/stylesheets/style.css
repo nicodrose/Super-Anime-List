@@ -17,3 +17,14 @@ a {
 .login img {
   height: 30px;
 }
+
+.anime-user {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.anime-user img {
+  border-radius: 50%;
+  height: 30px;
+}
