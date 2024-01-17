@@ -13,10 +13,10 @@
 
 <body>
     <nav>
-        <a href="/" <%- title === 'All Anime' ? 'class="active"' : '' %>>ALL ANIME</a>
-        <a href="/animes">Anime List</a>
+        <a href="/" <%- title === 'Home' ? 'class="active"' : '' %>>Home</a>&nbsp;|&nbsp;
+        <a href="/animes">Anime List</a>&nbsp;|&nbsp;
         <% if (user) { %>
-            <a href="/animes/new" <%- title === 'Add Anime' ? 'class="active"' : '' %>>ADD Anime</a>
+            <a href="/animes/new" <%- title === 'Add Anime' ? 'class="active"' : '' %>>Add Anime</a>&nbsp;|&nbsp;
           <a href="/logout">LOG OUT</a>
         <% } else { %>
           <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

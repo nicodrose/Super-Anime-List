@@ -1,6 +1,26 @@
 <%- include('../partials/header') %>
 
-
+<form action="/animes" method="POST">
+    <label>Title:
+        <input type="text" name="title">
+    </label><br>
+    <label>Genre:
+        <select name="genre">
+            <option value="Shonen">Shonen</option>
+            <option value="Seinen">Seinen</option>
+            <option value="Isekai">Isekai</option>
+            <option value="Mecha">Mecha</option>
+            <option value="Slice of Life">Slice of Life</option>
+        </select>
+    </label><br>
+    <label>Release Year:
+        <input type="text" name="releaseYear">
+    </label><br>
+    <label>Description:
+        <input type="text" name="description">
+    </label><br>
+    <button type="submit">Add Anime</button>
+</form>
 
 
 <%- include('../partials/footer') %>
