@@ -20,6 +20,9 @@ async function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     try {
         await Anime.create(req.body);
         res.redirect('/animes');
