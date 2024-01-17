@@ -2,11 +2,11 @@
 
 <form action="/animes" method="POST">
     <label>Title:
-        <input type="text" name="title">
+        <input type="text" name="title" required>
     </label><br>
     <label>Genre:
         <select name="genre">
-            <option value="Shonen">Shonen</option>
+            <option value="Shonen" selected>Shonen</option>
             <option value="Seinen">Seinen</option>
             <option value="Isekai">Isekai</option>
             <option value="Mecha">Mecha</option>
@@ -14,10 +14,10 @@
         </select>
     </label><br>
     <label>Release Year:
-        <input type="text" name="releaseYear">
+        <input type="text" name="releaseYear" required>
     </label><br>
     <label>Description:
-        <input type="text" name="description">
+        <input type="text" name="description" required>
     </label><br>
     <button type="submit">Add Anime</button>
 </form>

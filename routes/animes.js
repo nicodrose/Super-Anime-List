@@ -7,13 +7,7 @@ const animesCtrl = require('../controllers/animes');
 router.get('/', animesCtrl.index);
 // GET /animes/new (new functionality/controller action)
 router.get('/new', animesCtrl.new);
-
-
-
-
-
-
-
-
+// POST /animes (create functionality/controller action)
+router.post('/', animesCtrl.create);
 
 module.exports = router;
