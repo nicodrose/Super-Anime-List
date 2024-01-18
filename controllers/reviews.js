@@ -3,7 +3,7 @@ const Anime = require("../models/anime")
 module.exports = {
     create,
     delete: deleteOne,
-    edit
+    update
 }
 
 async function create(req, res) {
@@ -31,8 +31,16 @@ async function deleteOne(req, res) {
     res.redirect(`/animes/${anime._id}`)
 }
 
-async function edit(req, res) {
-    const review = await Review.findOne({_id: req.params.id, userRecommending: req.user._id});
-    if (!book) return res.redirect('/reviews');
-    res.render('review/edit', { review });
+
+async function update(req, res) {
+    const anime = await Anime.findOne({'reviews._id': req.params.id});
+    const reviewSubdoc = anime.reviews.id(req.params.id);
+    if (!reviewSubdoc.user.equals(req.user._id)) return res.redirect(`/animes/${anime._id}`);
+    reviewSubdoc.content = req.body.content;
+    try {
+        await anime.save();
+    } catch (err) {
+        console.log(err.message);
+    }
+    res.redirect(`/animes/${anime._id}`);
 }

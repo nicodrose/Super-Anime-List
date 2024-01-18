@@ -53,9 +53,10 @@
                         <td><%= r.judgement %></td>
                         <td>
                             <% if (user?._id.equals(r.user)) { %>
-                                <a href="/reviews/<%= r.id %>">
-                                <button type="submit">Edit</button>
-                                </a>
+                                <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
+                                <input name="content" value="<%= r.content %>">
+                                <button type="submit">Update Review</button>
+                                </form>
                             <% } %>
                         </td>
                         <td>

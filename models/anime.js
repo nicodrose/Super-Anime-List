@@ -26,11 +26,7 @@ const animeSchema = new Schema({
         min: 1975
     },
     description: { type: String, required: true },
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
+    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     reviews: [reviewSchema],
     userName: String,
     userAvatar: String
