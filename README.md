@@ -22,7 +22,7 @@ The Internets go-to aggregator of S-tier Anime. Please feel free to add your own
 
 ## Getting Started
 
-[Click to View Project Planning] (https://trello.com/b/rlN5hWDd/nicodrose-project-2)
+[Click to View Project Planning](https://trello.com/b/rlN5hWDd/nicodrose-project-2)
 [Click to See Some Fabulous Anime!](https://super-anime-list-4e678ec34e1a.herokuapp.com/)
 
 ## Next Steps
