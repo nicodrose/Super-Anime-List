@@ -54,7 +54,7 @@
                         <td>
                             <% if (user?._id.equals(r.user)) { %>
                                 <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
-                                <input name="content" value="<%= r.content %>">
+                                <input name="content" placeholder="Changed Your Mind?" value="">
                                 <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
                                 <select name="judgement" value="<%= r.judgement %>">
                                     <option value="S-Tier">S-Tier</option>

@@ -1,6 +1,9 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background-image: url(https://i.imgur.com/E7MvnbK.png);
+  background-repeat: no-repeat;
+  width: 100%; */
 }
 
 a {
@@ -21,10 +24,20 @@ a {
 .anime-user {
   display: flex;
   justify-content: left;
-  align-items: left;
+  align-items: center;
 }
 
 .anime-user img {
+  border-radius: 50%;
+  height: 30px;
+}
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
   border-radius: 50%;
   height: 30px;
 }
