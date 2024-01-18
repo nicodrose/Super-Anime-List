@@ -31,12 +31,12 @@ async function deleteOne(req, res) {
     res.redirect(`/animes/${anime._id}`)
 }
 
-
 async function update(req, res) {
     const anime = await Anime.findOne({'reviews._id': req.params.id});
     const reviewSubdoc = anime.reviews.id(req.params.id);
     if (!reviewSubdoc.user.equals(req.user._id)) return res.redirect(`/animes/${anime._id}`);
     reviewSubdoc.content = req.body.content;
+    reviewSubdoc.judgement = req.body.judgement;
     try {
         await anime.save();
     } catch (err) {

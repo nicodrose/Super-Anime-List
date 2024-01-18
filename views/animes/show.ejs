@@ -55,6 +55,14 @@
                             <% if (user?._id.equals(r.user)) { %>
                                 <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
                                 <input name="content" value="<%= r.content %>">
+                                <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
+                                <select name="judgement" value="<%= r.judgement %>">
+                                    <option value="S-Tier">S-Tier</option>
+                                    <option value="A-Tier">A-Tier</option>
+                                    <option value="B-Tier">B-Tier</option>
+                                    <option value="C-Tier">C-Tier</option>
+                                    <option value="D-Tier">D-Tier</option>
+                                </select>
                                 <button type="submit">Update Review</button>
                                 </form>
                             <% } %>
