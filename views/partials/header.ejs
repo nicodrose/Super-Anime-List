@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <nav>
-      <h1>Super Anime List</h1>
+  <nav>
+    <h1>Super Anime List</h1>
       <div class="nav-bar">
         <div class="nav-bar-1">
           <a href="/" <%- title === 'Home' ? 'class="active"' : '' %>>Home</a>
@@ -23,24 +23,21 @@
         <div class="nav-bar-2">
           <a href="/animes">Anime List</a>
         </div>&nbsp;|&nbsp;
-          <% if (user) { %>
-            <div class="nav-bar-3">
-              <a href="/animes/new" <%- title === 'Add Anime' ? 'class="active"' : '' %>>Add Anime</a>
-            </div>&nbsp;|&nbsp;
-            <div class="nav-bar-4">
-              <a href="/logout">LOG OUT</a>
-            </div>
-          <% } else { %>
-            <div class="nav-bar-5">
-              <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-            </div>
-          <% } %>
-        </div>
-    </nav>
-      <!-- <div class="image-container">
-        <img src="https://i.imgur.com/E7MvnbK.png" alt="image"> -->
+        <% if (user) { %>
+          <div class="nav-bar-3">
+            <a href="/animes/new" <%- title === 'Add Anime' ? 'class="active"' : '' %>>Add Anime</a>
+          </div>&nbsp;|&nbsp;
+          <div class="nav-bar-4">
+            <a href="/logout">LOG OUT</a>
+          </div>
+        <% } else { %>
+          <div class="nav-bar-5">
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+          </div>
+        <% } %>
       </div>
-    <main>
+  </nav>
+  <main>
 
 
 

@@ -32,7 +32,7 @@ async function deleteOne(req, res) {
 }
 
 async function update(req, res) {
-    const anime = await Anime.findOne({'reviews._id': req.params.id});
+    const anime = await Anime.findOne({ 'reviews._id': req.params.id });
     const reviewSubdoc = anime.reviews.id(req.params.id);
     if (!reviewSubdoc.user.equals(req.user._id)) return res.redirect(`/animes/${anime._id}`);
     reviewSubdoc.content = req.body.content;

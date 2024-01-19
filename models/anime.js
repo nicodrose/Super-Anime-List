@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    content: { type: String, required: true},
-    judgement: { type: String, enum: ['S-Tier', 'A-Tier', 'B-Tier', 'C-Tier', 'D-Tier'], default: 'S-Tier', required: true},
-    user: { type: Schema.Types.ObjectId, ref: 'User', required: true},
+    content: { type: String, required: true },
+    judgement: { type: String, enum: ['S-Tier', 'A-Tier', 'B-Tier', 'C-Tier', 'D-Tier'], default: 'S-Tier', required: true },
+    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     userName: String,
     userAvatar: String
 }, {
@@ -13,14 +13,14 @@ const reviewSchema = new Schema({
 
 const animeSchema = new Schema({
     title: { type: String, required: true },
-    genre: { 
-        type: String, 
+    genre: {
+        type: String,
         enum: ['Shonen', 'Seinen', 'Isekai', 'Mecha', 'Slice of Life', 'Indie'],
-        required: true 
+        required: true
     },
     releaseYear: {
         type: Number,
-        default: function() {
+        default: function () {
             return new Date().getFullYear();
         },
         min: 1975

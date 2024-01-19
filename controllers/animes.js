@@ -9,7 +9,7 @@ module.exports = {
 
 async function index(req, res) {
     const animes = await Anime.find({});
-    res.render('animes/index', { title: 'Anime List', animes});
+    res.render('animes/index', { title: 'Anime List', animes });
 }
 
 function newAnime(req, res) {
@@ -34,5 +34,5 @@ async function create(req, res) {
 
 async function show(req, res) {
     const anime = await Anime.findById(req.params.id);
-    res.render('animes/show', { title: 'Anime Details', anime });
+    res.render('animes/show', { title: 'Anime Add', anime });
 }

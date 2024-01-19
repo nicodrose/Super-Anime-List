@@ -3,83 +3,82 @@
 <div class="anime-reviews">
 <section>
 <ul class="anime-review-info">
-    <li>Title: <%= anime.title %></li>
-    <li>Genre: <%= anime.genre %></li>
-    <li>Release Year: <%= anime.releaseYear %></li>
-    <li>Description: <%= anime.description %></li>
-    <li>Contributor: <li>
-    <div class="anime-user"><img alt="avatar" src="<%= anime.userAvatar %>" referrerpolicy="no-referrer">&nbsp;<%= anime.userName %></div>
+  <li>Title: <%= anime.title %></li>
+  <li>Genre: <%= anime.genre %></li>
+  <li>Release Year: <%= anime.releaseYear %></li>
+  <li>Description: <%= anime.description %></li>
+  <li>Contributor: <li>
+  <div class="anime-user"><img alt="avatar" src="<%= anime.userAvatar %>" referrerpolicy="no-referrer">&nbsp;<%= anime.userName %></div>
 </ul>
 </section>
 
-<br>
 <section class="review">
-    <h2>Reviews</h2>
-    <% if (user) { %>
-        <form method="POST" action="/animes/<%= anime._id %>/reviews">
-            <label>Review: </label>
-            <textarea name="content"></textarea><br><br>
-            <label>Judgement:</label>
-            <select name="judgement">
-                <option value="S-Tier">S-Tier</option>
-                <option value="A-Tier">A-Tier</option>
-                <option value="B-Tier">B-Tier</option>
-                <option value="C-Tier">C-Tier</option>
-                <option value="D-Tier">D-Tier</option>
-            </select>
-            <input type="submit" value="Cast Judgement">
-        </form>
-    <% } %>
+  <h2>Reviews</h2>
+  <% if (user) { %>
+    <form method="POST" action="/animes/<%= anime._id %>/reviews" class="review-inputs">
+      <label>Review: </label>
+      <textarea name="content"></textarea>
+      <label>Judgement:</label>
+      <select name="judgement">
+        <option value="S-Tier">S-Tier</option>
+        <option value="A-Tier">A-Tier</option>
+        <option value="B-Tier">B-Tier</option>
+        <option value="C-Tier">C-Tier</option>
+        <option value="D-Tier">D-Tier</option>
+      </select>
+      <input type="submit" value="Cast Judgement">
+    </form>
+  <% } %>
 </section>
 
 <section>
-    <% if (anime.reviews.length) { %>
-        <table class="review-header">
-            <thead>
-                <tr class="review-details">
-                    <th>User</th>
-                    <th>Date</th>
-                    <th>Review</th>
-                    <th>Judgement</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% anime.reviews.forEach(function(r) { %>
-                    <tr>
-                        <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;<%= r.userName %></td>
-                        <td><%= r.createdAt.toLocaleDateString() %></td>
-                        <td><%= r.content %></td>
-                        <td><%= r.judgement %></td>
-                        <td>
-                            <% if (user?._id.equals(r.user)) { %>
-                                <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
-                                <input name="content" placeholder="Changed Your Mind?" value="">
-                                <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
-                                <select name="judgement" value="<%= r.judgement %>">
-                                    <option value="S-Tier">S-Tier</option>
-                                    <option value="A-Tier">A-Tier</option>
-                                    <option value="B-Tier">B-Tier</option>
-                                    <option value="C-Tier">C-Tier</option>
-                                    <option value="D-Tier">D-Tier</option>
-                                </select>
-                                <button type="submit">Update Review</button>
-                                </form>
-                            <% } %>
-                        </td>
-                        <td>
-                            <% if (user?._id.equals(r.user)) { %>
-                                <form action="/reviews/<%= r.id %>?_method=DELETE" method="POST">
-                                <button type="submit">X</button>
-                                </form>
-                            <% } %>
-                        </td>
-                    </tr>
-                <% }) %>
-            </tbody>
-        </table>
-    <% } else { %>
-        <h6>No Judgements Cast</h6>
-    <% }%>
+  <% if (anime.reviews.length) { %>
+    <table class="review-details">
+      <thead>
+        <tr class="review-header">
+          <th>User</th>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Judgement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% anime.reviews.forEach(function(r) { %>
+          <tr>
+            <td class="review-user"><img src="<%= r.userAvatar %>" alt="avatar" referrerpolicy="no-referrer">&nbsp;<%= r.userName %></td>
+            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td><%= r.content %></td>
+            <td><%= r.judgement %></td>
+            <td>
+              <% if (user?._id.equals(r.user)) { %>
+                <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
+                <input name="content" placeholder="Changed Your Mind?" value="">
+                <form action="/reviews/<%= r.id %>?_method=PUT" method="POST">
+                <select name="judgement" value="<%= r.judgement %>">
+                  <option value="S-Tier">S-Tier</option>
+                  <option value="A-Tier">A-Tier</option>
+                  <option value="B-Tier">B-Tier</option>
+                  <option value="C-Tier">C-Tier</option>
+                  <option value="D-Tier">D-Tier</option>
+                </select>
+                <button type="submit">Update Review</button>
+                </form>
+              <% } %>
+            </td>
+            <td>
+              <% if (user?._id.equals(r.user)) { %>
+                <form action="/reviews/<%= r.id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h6>No Judgements Cast</h6>
+  <% }%>
 </section>
 </div>
 

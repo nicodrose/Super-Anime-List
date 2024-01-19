@@ -2,27 +2,27 @@
 
 <div class="anime-list">
 <table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Genre</th>
-            <th>Release Year</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% animes.forEach(function(a) { %>
-            <tr>
-                <td><%= a.title %></td>
-                <td><%= a.genre %></td>
-                <td><%= a.releaseYear %></td>
-                <td><%= a.description %></td>
-                <td>
-                    <a href="/animes/<%= a._id%>">Details</a>
-                </td>
-            </tr>
-        <% }); %>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Release Year</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% animes.forEach(function(a) { %>
+      <tr>
+        <td><%= a.title %></td>
+        <td><%= a.genre %></td>
+        <td><%= a.releaseYear %></td>
+        <td><%= a.description %></td>
+        <td>
+          <a href="/animes/<%= a._id%>">Details</a>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
 </table>
 </div>
 

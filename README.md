@@ -4,7 +4,7 @@ The Internets go-to aggregator of S-tier Anime. Please feel free to add your own
 
 ## Screenshot
 
-<img src="https://i.imgur.com/E7MvnbK.png">
+<img src="https://i.imgur.com/7HBqkrN.png">
 
 ## Technologies Used
 
